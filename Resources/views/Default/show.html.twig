@@ -1,0 +1,62 @@
+<html>
+	<body>
+		<table>
+		   <caption>Passagers du vol 377</caption>
+
+		   <thead> <!-- En-tête du tableau -->
+		       <tr>
+		           <th>Date de création</th>
+		           <th>Identifiant</th>
+		           <th>Contenu</th>
+		           <th>Nbr. Retweet</th>
+		           <th>Nbr. Favoris</th>
+		           <th>Geo</th>
+		           <th>Coord.</th>
+		           <th>Nom user</th>
+		           <th>Pseudo user</th>
+		           <th>localisation user</th>
+		       </tr>
+		   </thead>
+
+		   <tfoot> <!-- Pied de tableau -->
+		       <tr>
+		           <th>Date de création</th>
+		           <th>Identifiant</th>
+		           <th>Contenu</th>
+		           <th>Nbr. Retweet</th>
+		           <th>Nbr. Favoris</th>
+		           <th>Geo</th>
+		           <th>Coord.</th>
+		           <th>Nom user</th>
+		           <th>Pseudo user</th>
+		           <th>localisation user</th>
+		       </tr>
+		   </tfoot>
+		   <tbody> <!-- Corps du tableau -->
+			{% for tt in tweets %}
+				<tr>
+		           <td>{{ tt.getCreateAt }}</td>
+		           <td>{{ tt.getIdStr }}</td>
+		           <td>{{ tt.getText }}</td>
+		           <td>{{ tt.getRetweetCount }}</td>
+		           <td>{{ tt.getFavoriteCount }}</td>
+		           <td>{{ tt.getGeo }}</td>
+		           <td>{{ tt.getIdStr }}</td>
+		           <td>{{ tt.getCoordonates }}</td>
+		           <td>{{ tt.getUserSreenName }}</td>
+		           <td>{{ tt.getUserLocation }}</td>
+		           <td>
+		           		{% for ht in tt.hashtags %}
+		           			<li>{{ ht }}</li>
+		           		{% else %}
+		           		aucun tag
+		           		{% endfor %}
+		           	</td>
+		       </tr>
+			{% else %}
+				<p>Aucune catégorie n'a été trouvée.</p>
+			{% endfor %}
+		   </tbody>
+		</table>
+	</body>
+</html>

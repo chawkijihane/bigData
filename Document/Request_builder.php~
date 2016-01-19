@@ -1,0 +1,29 @@
+<?php
+namespace BDApp\SLBundle\Document;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document
+ */
+class Request_builder
+{
+    /**
+     * @MongoDB\Id
+     */
+    protected $id;
+
+    /**
+     * @MongoDB\Field(name="key_words", type="string")
+     */
+    protected $key_words;
+
+    /**
+     * @MongoDB\Field(name="hashtags", type="string")
+     */
+    protected $hashtags;
+
+    /**
+     * @MongoDB\Field(name="user_opt", type="bool")
+     */
+    protected $users;
+}
